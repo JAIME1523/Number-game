@@ -49,7 +49,7 @@ class HomeProvider extends ChangeNotifier {
     }
     if (int.parse(value) > game.numberRange) {
       NotificationsService.showSnackbarError(
-          'El rango de maximo de numeros es ${game.numberRange}');
+          'El rango de maximo del numero es ${game.numberRange}');
       return false;
     }
 
@@ -80,6 +80,12 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
+  void resetetGame() {
+    answerController.clear();
+    valueSlider = 0;
+    answerList = [];
+    selectLevel();
+  }
 
   void randomNumber(int max, int maxChance, String name) {
     minorList = [];

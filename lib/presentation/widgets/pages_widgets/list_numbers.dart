@@ -16,6 +16,8 @@ class ListNumbers extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final colors = Theme.of(context).colorScheme;
+    final style = Theme.of(context).textTheme;
+
     return Container(
       height: size.height * 0.35,
       width: (size.width - 40) * 0.30,
@@ -35,7 +37,8 @@ class ListNumbers extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text(title),
+            Text(title, style: style.bodyLarge,),
+            Divider(),
             ...llistNumbers.map((answer) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 5),
                   width: (size.width - 40) * 0.2,
