@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'config/config.dart';
 import 'presentation/page/pages.dart';
+import 'presentation/provider/provider.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(
+  ChangeNotifierProvider(
+    create: (_) => HomeProvider(), child: const MyApp())
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scaffoldMessengerKey: NotificationsService.messagerKey,
+        scaffoldMessengerKey: NotificationsService.messagerKey,
         debugShowCheckedModeBanner: false,
         theme: Apptheme().getTheme(),
         title: 'Juego de números',

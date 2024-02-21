@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/provider.dart';
 
 
 class SliderInfo extends StatelessWidget {
@@ -7,18 +10,22 @@ class SliderInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final styleText = Theme.of(context).textTheme;
+    final homeProvider = context.watch<HomeProvider>();
+
     return Column(
       children: [
         const SizedBox(
           height: 20,
         ),
-        Text('5', style: styleText.bodyLarge!.copyWith(color: _switcCholor(1)),),
+        Text(homeProvider.game.level, style: styleText.bodyLarge!.copyWith(color: _switcCholor(homeProvider.valueSlider)),),
         Slider(
             min: 0,
             max: 3,
             divisions: 3,
-            value: 0,
+             value: homeProvider.valueSlider,
+            onChangeEnd: (value) => homeProvider.selectLevel(),
             onChanged: (value) {
+              homeProvider.valueSlider = value;
             }),
       ],
     );
