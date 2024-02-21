@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldMessengerKey: NotificationsService.messagerKey,
         debugShowCheckedModeBanner: false,
         theme: Apptheme().getTheme(),
-        title: 'Juego de números',
+        title: 'Game number',
         home: const HomePage());
   }
 }
