@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../provider/provider.dart';
 import '../widgets/widgets.dart';
-import 'widgets_page/input_info.dart';
-import 'widgets_page/slider_info.dart';
 import 'widgets_page/widgets_page.dart';
 
 

@@ -38,7 +38,7 @@ class ListNumbers extends StatelessWidget {
               height: 10,
             ),
             Text(title, style: style.bodyLarge,),
-            Divider(),
+            const Divider(),
             ...llistNumbers.map((answer) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 5),
                   width: (size.width - 40) * 0.2,
