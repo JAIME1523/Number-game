@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: NotificationsService.messagerKey,
         debugShowCheckedModeBanner: false,
         theme: Apptheme().getTheme(),
         title: 'Juego de números',
-        home: HomePage());
+        home: const HomePage());
   }
 }
