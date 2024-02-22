@@ -5,13 +5,13 @@ import 'package:provider/provider.dart';
 import '../../provider/provider.dart';
 import '../../widgets/widgets.dart';
 
-
 class InputInfo extends StatelessWidget {
   const InputInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     final styleText = Theme.of(context).textTheme;
+    final colors = Theme.of(context).colorScheme;
 
     final provider = context.watch<HomeProvider>();
     final size = MediaQuery.sizeOf(context);
@@ -39,8 +39,22 @@ class InputInfo extends StatelessWidget {
               'Intentos',
               style: styleText.bodyLarge,
             ),
-            Text('${provider.game.maxChance}',
-                style: styleText.bodyLarge!.copyWith(fontSize: 25))
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                const Icon(
+                  Icons.favorite,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('${provider.game.maxChance}',
+                      style: styleText.bodyLarge!.copyWith(
+                          fontSize: 20, color: colors.secondaryContainer)),
+                ),
+              ],
+            )
           ],
         )
       ],

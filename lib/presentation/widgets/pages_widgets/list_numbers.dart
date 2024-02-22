@@ -19,47 +19,56 @@ class ListNumbers extends StatelessWidget {
     final style = Theme.of(context).textTheme;
 
     return Container(
-      height: size.height * 0.35,
+      height: size.height * 0.38,
       width: (size.width - 40) * 0.30,
       decoration: BoxDecoration(
-        color: colors.onInverseSurface,
-        boxShadow: const [
-        BoxShadow(
-          color: Color.fromARGB(255, 141, 141, 141),
-          offset: Offset(7, 7),
-          blurRadius: 6,
-        ),
-        
-      ], borderRadius: BorderRadius.circular(15)),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
+          color: colors.onInverseSurface,
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromARGB(255, 141, 141, 141),
+              offset: Offset(7, 7),
+              blurRadius: 6,
             ),
-            Text(title, style: style.bodyLarge,),
-            const Divider(),
-            ...llistNumbers.map((answer) => Container(
-                  margin: const EdgeInsets.symmetric(vertical: 5),
-                  width: (size.width - 40) * 0.2,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: colors.secondaryContainer),
-                  child: Center(
-                    child: Text(
-                      '${answer.number}',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: answer.isCorrect == null
-                              ? null
-                              : answer.isCorrect!
-                                  ? Colors.green
-                                  : Colors.red),
-                    ),
-                  ),
-                ))
           ],
-        ),
+          borderRadius: BorderRadius.circular(15)),
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            title,
+            style: style.bodyLarge,maxLines: 1,
+          ),
+          const Divider(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ...llistNumbers.reversed.map((answer) => Container(
+                        margin: const EdgeInsets.symmetric(vertical: 5),
+                        width: (size.width - 40) * 0.2,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: colors.secondaryContainer),
+                        child: Center(
+                          child: Text(
+                            '${answer.number}',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: answer.isCorrect == null
+                                    ? null
+                                    : answer.isCorrect!
+                                        ? Colors.green
+                                        : Colors.red),
+                          ),
+                        ),
+                      ))
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

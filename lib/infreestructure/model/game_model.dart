@@ -3,5 +3,5 @@ class GameModel {
   int numberRange;
   String level;
 
-  GameModel({required this.maxChance, required this.numberRange, required this.level, });
+  GameModel({ this.maxChance = 5,  this.numberRange = 10,  this.level='Facil', });
 }

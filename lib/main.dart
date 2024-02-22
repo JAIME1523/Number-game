@@ -5,10 +5,8 @@ import 'config/config.dart';
 import 'presentation/page/pages.dart';
 import 'presentation/provider/provider.dart';
 
-void main() => runApp(
-  ChangeNotifierProvider(
-    create: (_) => HomeProvider(), child: const MyApp())
-    );
+void main() => runApp(ChangeNotifierProvider(
+    create: (_) => HomeProvider()..selectLevel(), child: const MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

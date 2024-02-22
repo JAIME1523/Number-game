@@ -5,6 +5,7 @@ class NotificationsService {
       GlobalKey<ScaffoldMessengerState>();
 
   static showSnackbarError(String message) {
+    if (message.isEmpty) return;
     messagerKey.currentState!.clearSnackBars();
     final snackbar = SnackBar(
       backgroundColor: Colors.red.withOpacity(0.9),
@@ -18,5 +19,4 @@ class NotificationsService {
 
     messagerKey.currentState!.showSnackBar(snackbar);
   }
-
 }
